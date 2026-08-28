@@ -4,7 +4,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # ── LOAD ALL TABLES ─────────────────────────────────────
-orders = pd.read_csv(r"C:\Final Projects\fact orders.csv")
+orders = pd.read_csv("../data/fact_orders.csv")
+
+# Date Conversion
 orders['order_timestamp'] = pd.to_datetime(orders['order_timestamp'],errors='coerce')
 
 # Fliter completed orders
