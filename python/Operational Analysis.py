@@ -4,16 +4,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # ── LOAD ALL TABLES ─────────────────────────────────────
-
 orders = pd.read_csv("../data/fact_orders.csv")
-Restaurant = pd.read_csv("../data/dim_restaurant.csv")
+restaurant = pd.read_csv("../data/dim_restaurant.csv")
 delivery_performance = pd.read_csv("../data/delivery_performance.csv")
-# Date conversion:
 
+# Date conversion:
 orders['order_timestamp'] = pd.to_datetime(orders['order_timestamp'],format='%d-%m-%Y %H:%M')
 
 # Delivery performance: 
-
 delivery['Delivery_Delay_Minutes'] = (delivery['actual_delivery_time_mins'] - delivery['expected_delivery_time_mins'])
 delivery['Late_Delivery'] = np.where(delivery['Delivery_Delay_Minutes'] > 0,1,0)
 print("\nDELIVERY DELAY VERIFICATION")
@@ -25,7 +23,6 @@ missing_delivery = orders_delivery['Delivery_Delay_Minutes'].isna().sum()
 print(f"\nMissing delivery records: {missing_delivery}")
 
 # Did delivery performance deteriorate during the crisis:
-
 delivery_phase = (orders_delivery.groupby('Order phase').agg(Avg_Delivery_Delay=('Delivery_Delay_Minutes','mean'),Late_Delivery_Rate=('Late_Delivery','mean')))
 delivery_phase['Late_Delivery_Rate'] *= 100
 print("\nDELIVERY PERFORMANCE: PRE-CRISIS VS CRISIS")
@@ -41,7 +38,7 @@ cancellation_by_delivery.index = (cancellation_by_delivery.index.map({0: 'On-Tim
 print("\nCANCELLATION RATE BY DELIVERY STATUS")
 print(cancellation_by_delivery.round(2))
 
-# restaurant preparation time contribute to delivery problems
+# Restaurant preparation time contribute to delivery problems
 restaurant_prep = Restaurant[['restaurant_id','avg_prep_time_min','Preparation time category']].drop_duplicates('restaurant_id')
 orders_delivery = orders_delivery.merge(restaurant_prep,on='restaurant_id', how='left')
 print("\nPREPARATION TIME MERGE")
