@@ -5,15 +5,14 @@ import matplotlib.pyplot as plt
 
 
 # ── LOAD ALL TABLES ─────────────────────────────────────
-
 orders = pd.read_csv("../data/fact_orders.csv")
 restaurant = pd.read_csv("../data/dim_restaurant.csv")
 
+# Date Conversion
 orders['order_timestamp'] = pd.to_datetime(orders['order_timestamp'],format='%d-%m-%Y %H:%M',errors='coerce')
 orders['OrderMonth'] = (orders['order_timestamp'].dt.to_period('M'))
 
 ## KPI calculation 
-
 crisis_kpi = (orders.groupby('Order phase').agg(Orders=('order_id', 'nunique'),
 Revenue=('total_amount','sum'),
 Active_Customers=('customer_id','nunique'),
