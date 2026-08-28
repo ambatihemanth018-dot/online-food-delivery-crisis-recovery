@@ -7,6 +7,20 @@ An online food delivery startup, QuickBite, experienced a significant business c
 
 This project uses SQL and Python to investigate the crisis, identify root causes, analyze customer retention, and provide recovery recommendations.
 
+## 📂 Dataset Availability
+
+The dataset used for this project is not included in this repository due to its large file size.
+
+The analysis was conducted using datasets related to:
+
+- Orders and order items
+- Customers
+- Restaurants and menu items
+- Customer ratings
+- Delivery performance
+
+The project includes the Python and SQL scripts required to perform the analysis. The dataset can be added locally following the expected file structure.
+
 🎯 Business Problem
 
 The startup experienced:
