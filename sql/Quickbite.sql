@@ -14,7 +14,7 @@ CREATE TABLE Delivery_performance
 );
 
 BULK INSERT fact_orders
-FROM 'C:\Final Projects\fact orders.csv'
+FROM 'path/to/fact_orders.csv'
 WITH
 (
 FIRSTROW=2,
