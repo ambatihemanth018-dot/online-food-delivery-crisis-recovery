@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 
 
 # ── LOAD ALL TABLES ─────────────────────────────────────
-
 orders = pd.read_csv("../data/fact_orders.csv")
 order_items = pd.read_csv("../data/fact_order_items.csv")
 ratings = pd.read_csv("../data/fact_ratings.csv")
@@ -18,25 +17,22 @@ delivery = pd.read_csv("../data/delivery_performance.csv")
 
 
 # structure 
-
-""" datasets = {
+ datasets = {
     "Orders": orders,
     "Customers": customer,
     "Restaurants": Restaurant,
     "Order Items": order_items,
     "Ratings": ratings,
-    "Delivery": delivery
-}
+    "Delivery": delivery }
 
 for name, df in datasets.items():
     print("\n" + "=" * 50)
     print(name)
     print("=" * 50)
     print("Shape:", df.shape)
-    print(df.dtypes) """
+    print(df.dtypes) 
 
 ## Data Conversion
-
 orders['order_timestamp'] = pd.to_datetime(orders['order_timestamp'],format='%d-%m-%Y %H:%M',errors='coerce')
 print("\nInvalid order timestamps:",orders['order_timestamp'].isna().sum())
 
