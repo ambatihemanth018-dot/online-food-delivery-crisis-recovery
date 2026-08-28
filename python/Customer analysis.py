@@ -3,8 +3,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-orders = pd.read_csv(r"C:\Project 4\Fact_orders.csv")
-customers = pd.read_csv(r"C:\Project 4\dim_customer.csv")
+orders = pd.read_csv("../data/fact_orders.csv")
+customers = pd.read_csv("../data/dim_customer.csv")
 
 ### Date converstion ###
 
