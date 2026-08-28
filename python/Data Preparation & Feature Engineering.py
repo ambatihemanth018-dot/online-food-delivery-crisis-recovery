@@ -8,14 +8,13 @@ import matplotlib.pyplot as plt
 
 # ── LOAD ALL TABLES ─────────────────────────────────────
 
-orders = pd.read_csv(r"C:\Final Projects\fact orders.csv")
-customer = pd.read_csv(r"C:\Final Projects\customer.csv")
-Restaurant = pd.read_csv(r"C:\Final Projects\Restaurants.csv")
-order_items = pd.read_csv(r"C:\Final Projects\order items.csv")
-delivery = pd.read_csv(r"C:\Final Projects\Delivery performance.csv")
-delivery_partner = pd.read_csv(r"C:\Final Projects\Delivery partner.csv")
-ratings = pd.read_csv(r"C:\Final Projects\Ratings_1.csv")
-menu_items = pd.read_csv(r"C:\Final Projects\menu items.csv")
+orders = pd.read_csv("../data/fact_orders.csv")
+order_items = pd.read_csv("../data/fact_order_items.csv")
+ratings = pd.read_csv("../data/fact_ratings.csv")
+customers = pd.read_csv("../data/dim_customer.csv")
+restaurants = pd.read_csv("../data/dim_restaurant.csv")
+menu_items = pd.read_csv("../data/dim_menu_item.csv")
+delivery = pd.read_csv("../data/delivery_performance.csv")
 
 
 # structure 
