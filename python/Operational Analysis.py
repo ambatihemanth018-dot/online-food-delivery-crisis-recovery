@@ -5,10 +5,9 @@ import matplotlib.pyplot as plt
 
 # ── LOAD ALL TABLES ─────────────────────────────────────
 
-orders = pd.read_csv(r"C:\Final Projects\fact orders.csv")
-Restaurant = pd.read_csv(r"C:\Final Projects\Restaurants.csv")
-delivery = pd.read_csv(r"C:\Final Projects\Delivery performance.csv")
-
+orders = pd.read_csv("../data/fact_orders.csv")
+Restaurant = pd.read_csv("../data/dim_restaurant.csv")
+delivery_performance = pd.read_csv("../data/delivery_performance.csv")
 # Date conversion:
 
 orders['order_timestamp'] = pd.to_datetime(orders['order_timestamp'],format='%d-%m-%Y %H:%M')
