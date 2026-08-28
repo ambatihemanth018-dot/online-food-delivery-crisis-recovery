@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 
 # ── LOAD ALL TABLES ─────────────────────────────────────
 
-orders = pd.read_csv(r"C:\Final Projects\fact orders.csv")
-Restaurant = pd.read_csv(r"C:\Final Projects\Restaurants.csv")
+orders = pd.read_csv("../data/fact_orders.csv")
+Restaurant = pd.read_csv("../data/fact_orders.csv")
 
 orders['order_timestamp'] = pd.to_datetime(orders['order_timestamp'],format='%d-%m-%Y %H:%M',errors='coerce')
 orders['OrderMonth'] = (orders['order_timestamp'].dt.to_period('M'))
